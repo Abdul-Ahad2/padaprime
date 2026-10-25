@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+:root {
+  --red: #f20000;
+  --charcoal: #2a2a2a;
+  --ink: #121212;
+  --line: #373737;
+  --body-font: var(--font-heebo), "Heebo", Arial, sans-serif;
+  --display-font: var(--font-teko), "Teko", "Arial Narrow", sans-serif;
+}
+
+@theme inline {
+  --color-background: #2a2a2a;
+  --color-foreground: #ffffff;
+  --font-sans: var(--body-font);
+  --font-display: var(--display-font);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--charcoal);
+  color: #ffffff;
+  font-family: var(--body-font);
+  font-size: 16px;
+}
+
+a,
+button,
+select,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+button {
+  cursor: pointer;
+}
+
+.font-display {
+  font-family: var(--display-font);
+}
+
+.nav-hover-line {
+  position: relative;
+}
+
+.nav-hover-line::before {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  content: "";
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.nav-hover-line:hover::before {
+  transform: scaleX(1);
+}
+
+.container-shell {
+  width: min(1280px, 90%);
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: 5vw;
+}
+
+.dotted-section {
+  background-color: var(--ink);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.faq-dotted-section,
+.quality-dotted-section {
+  background-color: var(--ink);
+  background-image: linear-gradient(90deg, rgba(18, 18, 18, 0) 0%, var(--ink) 50%), radial-gradient(rgba(80, 30, 30, 0.65) 3.5px, transparent 3.5px);
+  background-size: 100% 100%, 42px 42px;
+  background-repeat: no-repeat, repeat;
+}
+
+.faq-dotted-section {
+  padding-block: 6vw;
+}
+
+.logo-scroll {
+  scrollbar-color: var(--red) #2a2a2a;
+  scrollbar-width: thin;
+}
+
+.logo-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.logo-scroll::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+.logo-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: var(--red);
+}
+
+.skeleton-image {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, #1c1c1c 0%, #353535 46%, #202020 100%);
+}
+
+.skeleton-image.absolute {
+  position: absolute;
+}
+
+.skeleton-image::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.14) 46%, transparent 72%);
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+.skeleton-image::before {
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.skeleton-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--display-font);
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  background: var(--red);
+  padding: 10px 30px;
+  color: #ffffff;
+  font-family: var(--display-font);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin-top: 10px;
+  color: #ffffff;
+  font-family: var(--display-font);
+  font-size: 45px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.section-description {
+  max-width: 800px;
+  margin: 10px auto 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.red-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  padding: 15px 30px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.red-button:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: none;
+}
+
+@keyframes skeleton-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@media (max-width: 767px) {
+  .container-shell {
+    width: 90%;
+  }
+
+  .section-space {
+    padding-block: 60px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .section-description {
+    font-size: 14px;
+  }
+
+  .eyebrow {
+    font-size: 20px;
+  }
+}
