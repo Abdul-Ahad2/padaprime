@@ -2,17 +2,17 @@
 
 import { useMemo, useState } from "react";
 import { Icon } from "./icons";
-import { productImages } from "@/data/product-images";
+import { productCategories, productImages } from "@/data/product-images";
 import { EmptyState, MediaFrame, ProductCard } from "./site-ui";
 import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 
-const categories = ["All Categories", "Sports Wear", "Fitness Wear", "Casual Wear", "Wrestling Wear", "Fashion Jackets", "Sports Gloves", "Accessories"];
+const categories = ["All Categories", ...productCategories];
 const shopProducts = productImages.map(({ name, category, src }) => [name, category, src, src]);
 
-export default function ShopPage() {
-  const [category, setCategory] = useState("All Categories");
-  const [query, setQuery] = useState("");
+export default function ShopPage({ initialQuery = "", initialCategory = "All Categories" }) {
+  const [category, setCategory] = useState(initialCategory);
+  const [query, setQuery] = useState(initialQuery);
   const [sort, setSort] = useState("popular");
   const [view, setView] = useState("grid");
   const [quickView, setQuickView] = useState(null);
@@ -20,7 +20,8 @@ export default function ShopPage() {
   const products = useMemo(() => {
     const filtered = shopProducts.filter(([name, productCategory]) => {
       const categoryMatch = category === "All Categories" || productCategory === category;
-      const queryMatch = name.toLowerCase().includes(query.toLowerCase());
+      const term = query.trim().toLowerCase();
+      const queryMatch = name.toLowerCase().includes(term) || productCategory.toLowerCase().includes(term);
       return categoryMatch && queryMatch;
     });
     if (sort === "name") return [...filtered].sort(([first], [second]) => first.localeCompare(second));

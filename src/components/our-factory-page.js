@@ -21,7 +21,7 @@ const points = [
   ["Packing & Logistics", "Professional packing and coordination for reliable global shipping."],
 ];
 
-const galleryIds = [1, 21, 27, 78, 103, 115, 130, 147];
+const galleryIds = [31, 22, 14, 36, 42, 49, 60, 65];
 const gallery = galleryIds.map((id) => productImages.find((item) => item.id === id)).filter(Boolean);
 
 export default function OurFactoryPage() {
@@ -41,7 +41,7 @@ export default function OurFactoryPage() {
                 <Link href="/contact-us" className="border border-white/30 px-7 py-3 text-[15px] font-medium transition hover:border-[#f20000] hover:text-[#f20000]">Contact The Factory</Link>
               </div>
             </div>
-            <MediaFrame src={gallery[0]?.src || productImages[0].src} alt="Pada Prime production facility" className="aspect-square w-full" sizes="(max-width: 1024px) 90vw, 48vw" priority />
+            <MediaFrame src={productImages.find((item) => item.id === 85)?.src || productImages[0].src} alt="Pada Prime production facility" className="aspect-square w-full" sizes="(max-width: 1024px) 90vw, 48vw" priority />
           </div>
         </section>
 

@@ -23,7 +23,7 @@ const process = [
   ["06", "Global Shipping", "Export-ready packaging and reliable logistics deliver your order on time, worldwide."],
 ];
 
-const galleryIds = [2, 22, 28, 79, 104, 116, 131, 148];
+const galleryIds = [65];
 const gallery = galleryIds.map((id) => productImages.find((item) => item.id === id)).filter(Boolean);
 
 export default function CustomManufacturingPage() {
@@ -70,33 +70,10 @@ export default function CustomManufacturingPage() {
             <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {process.map(([number, title, text]) => <article key={number} className="border-l-[5px] border-[#f20000] pl-5"><span className="font-display text-3xl font-semibold text-[#f20000]">{number}</span><h3 className="mt-1 font-display text-2xl font-semibold leading-none">{title}</h3><p className="mt-2 text-[15px] leading-7 text-white/85">{text}</p></article>)}
             </div>
-            <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {gallery.map((item, index) => <MediaFrame key={item.id} src={item.src} alt={`Custom manufacturing sample ${index + 1}`} className="aspect-square w-full" sizes="(max-width: 768px) 45vw, 25vw" />)}
-            </div>
           </div>
         </section>
 
         <section className="section-space">
-          <div className="container-shell grid items-center gap-10 lg:grid-cols-[38%_62%] lg:gap-x-14">
-            <div>
-              <span className="eyebrow">Watch</span>
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">Inside Our Manufacturing</h2>
-              <p className="mt-4 text-[15px] leading-7 text-white/85">See the craftsmanship behind our custom apparel, from fabric handling and stitching to finishing and packing.</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/contact-us" className="red-button">Start Your Order <Icon name="arrow-right" size={16} /></Link>
-                <Link href="/our-factory" className="border border-white/30 px-7 py-3 text-[15px] font-medium transition hover:border-[#f20000] hover:text-[#f20000]">Factory Details</Link>
-              </div>
-            </div>
-            <div className="relative overflow-hidden border border-white/[0.21] bg-black">
-              <video controls playsInline preload="metadata" poster={gallery[1]?.src || gallery[0]?.src} className="aspect-video w-full">
-                <source src="/videos/manufacturing.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </section>
-
-        <section className="dotted-section section-space">
           <div className="container-shell text-center">
             <span className="eyebrow">Start A Project</span>
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">Your Design. Our Factory. Worldwide Delivery.</h2>
