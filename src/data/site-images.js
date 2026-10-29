@@ -3,38 +3,38 @@ import { productImages } from "./product-images";
 const localProduct = (fileName) => productImages.find((item) => item.src.endsWith(fileName))?.src || productImages[0].src;
 
 export const heroImages = [
-  localProduct("product-057.png"),
-  localProduct("product-085.png"),
-  localProduct("product-087.png"),
-  localProduct("product-047.png"),
-  "/categories/track-top.png",
+  localProduct("product-057.webp"),
+  localProduct("product-085.webp"),
+  localProduct("product-087.webp"),
+  localProduct("product-047.webp"),
+  "/categories/track-top.webp",
 ];
 
 export const processImages = [
-  "/assets/art.png",
-  "/assets/spool.png",
-  "/assets/scissors.png",
-  "/assets/secure-shield.png",
-  "/assets/price-tag.png",
-  "/assets/worldwide.png",
+  "/assets/art.webp",
+  "/assets/spool.webp",
+  "/assets/scissors.webp",
+  "/assets/secure-shield.webp",
+  "/assets/price-tag.webp",
+  "/assets/worldwide.webp",
 ];
 
 export const certificationImages = [
-  "/assets/FBR.png",
-  "/assets/FDA.png",
-  "/assets/GMP.png",
-  "/assets/ISO-9001.png",
+  "/assets/FBR.webp",
+  "/assets/FDA.webp",
+  "/assets/GMP.webp",
+  "/assets/ISO-9001.webp",
   "/assets/SCCI.jpg",
   "/assets/white-bg.jpg",
 ];
 
 export const deliveryImages = [
-  "/assets/1-dhl.png",
-  "/assets/2-fedex.png",
-  "/assets/3-ups.png",
-  "/assets/4-sky-net.png",
-  "/assets/5-dpd.png",
+  "/assets/1-dhl.webp",
+  "/assets/2-fedex.webp",
+  "/assets/3-ups.webp",
+  "/assets/4-sky-net.webp",
+  "/assets/5-dpd.webp",
 ];
 
-export const logo = "/pada-prime-logo-v4.png";
-export const aboutImage = localProduct("product-014.png");
+export const logo = "/pada-prime-logo-v4.webp";
+export const aboutImage = localProduct("product-014.webp");
